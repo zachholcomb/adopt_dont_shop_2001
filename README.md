@@ -141,7 +141,7 @@ User Story 4, Shelter Creation
 
 As a visitor
 When I visit the Shelter Index page
-Then I see a link to create a new Shelter
+Then I see a link to create a new Shelter, "New Shelter"
 When I click this link
 Then I am taken to '/shelters/new' where I  see a form for a new shelter
 When I fill out the form with a new shelter's:
@@ -150,7 +150,7 @@ When I fill out the form with a new shelter's:
 - city
 - state
 - zip
-And I click the button to submit the form
+And I click the button "Create Shelter" to submit the form
 Then a `POST` request is sent to '/shelters',
 a new shelter is created,
 and I am redirected to the Shelter Index page where I see the new Shelter listed.
@@ -163,8 +163,8 @@ User Story 5, Shelter Update
 
 As a visitor
 When I visit a shelter show page
-Then I see a link to update the shelter
-When I click the link
+Then I see a link to update the shelter "Update Shelter"
+When I click the link "Update Shelter"
 Then I am taken to '/shelters/:id/edit' where I  see a form to edit the shelter's data including:
 - name
 - address
@@ -186,7 +186,7 @@ User Story 6, Shelter Delete
 As a visitor
 When I visit a shelter show page
 Then I see a link to delete the shelter
-When I click the link
+When I click the link "Delete Shelter"
 Then a 'DELETE' request is sent to '/shelters/:id',
 the shelter is deleted,
 and I am redirected to the shelter index page where I no longer see this shelter
@@ -249,7 +249,7 @@ User Story 10, Shelter Pet Creation
 
 As a visitor
 When I visit a Shelter Pets Index page
-Then I see a link to add a new adoptable pet for that shelter
+Then I see a link to add a new adoptable pet for that shelter "Create Pet"
 When I click the link
 I am taken to '/shelters/:shelter_id/pets/new' where I see a form to add a new adoptable pet
 When I fill in the form with the pet's:
@@ -258,6 +258,7 @@ When I fill in the form with the pet's:
 - description
 - approximate age
 - sex ('female' or 'male')
+And I click the button "Create Pet"
 Then a `POST` request is sent to '/shelters/:shelter_id/pets',
 a new pet is created for that shelter,
 that pet has a status of 'adoptable',
@@ -271,15 +272,15 @@ User Story 11, Pet Update
 
 As a visitor
 When I visit a Pet Show page
-Then I see a link to update that Pet
-When I click the link
+Then I see a link to update that Pet "Update Pet"
+When I click the link 
 I am taken to '/pets/:id/edit' where I see a form to edit the pet's data including:
 - image
 - name
 - description
 - approximate age
 - sex
-When I click the button to submit the form
+When I click the button to submit the form "Update Pet"
 Then a `PATCH` request is sent to '/pets/:id',
 the pet's data is updated,
 and I am redirected to the Pet Show page where I see the Pet's updated information
@@ -292,7 +293,7 @@ User Story 12, Pet Delete
 
 As a visitor
 When I visit a pet show page
-Then I see a link to delete the pet
+Then I see a link to delete the pet "Delete Pet"
 When I click the link
 Then a 'DELETE' request is sent to '/pets/:id',
 the pet is deleted,
