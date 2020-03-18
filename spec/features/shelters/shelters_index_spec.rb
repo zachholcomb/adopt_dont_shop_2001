@@ -19,4 +19,18 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content(shelter_1.name)
     expect(page).to have_content(shelter_2.name)
   end
+
+  it "can link to the new page from index" do
+    visit "/shelters"
+
+    expect(page).to have_link("New Shelter")
+
+    click_link("New Shelter")
+
+    expect(page).to have_content('Name:')
+    expect(page).to have_content('Address:')
+    expect(page).to have_content('City:')
+    expect(page).to have_content('State:')
+    expect(page).to have_content('Zip:')
+  end
 end
