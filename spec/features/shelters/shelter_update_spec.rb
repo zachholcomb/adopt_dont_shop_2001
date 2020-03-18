@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "shelter update functionality" do
+RSpec.describe "shelter update functionality", type: :feature do
   it "can update shelter info" do
     shelter_1 = Shelter.create(name: "Denver Animal Shelter",
                                address: "500 Invisible St.",
@@ -18,5 +18,9 @@ RSpec.describe "shelter update functionality" do
     click_button('Update Shelter')
     expect(page).to have_current_path("/shelters/#{shelter_1.id}")
     expect(page).to have_content("Hedgehog Hospital")
+    expect(page).to have_content("99 Thorn Rd.")
+    expect(page).to have_content("Fort Collins")
+    expect(page).to have_content("Colorado")
+    expect(page).to have_content("90000")
   end
 end
