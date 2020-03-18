@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Shelter delete functionality", type: :feature do
   it "can delete individual shelters" do
-    shelter_1 = Shelter.create(name: "Denver Animal Shelter",
+    shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                                address: "500 Invisible St.",
                                city: "Denver",
                                state: "Colorado",

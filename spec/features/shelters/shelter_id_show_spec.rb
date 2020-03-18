@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "shelter id page", type: :feature do
   it "can display shelter information on id page" do
-    shelter_1 = Shelter.create(name: "Denver Animal Shelter",
+    shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                                address: "500 Invisible St.",
                                city: "Denver",
                                state: "Colorado",
@@ -18,7 +18,7 @@ RSpec.describe "shelter id page", type: :feature do
   end
 
   it "can link to an edit page for the shelter id" do
-    shelter_1 = Shelter.create(name: "Denver Animal Shelter",
+    shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                                address: "500 Invisible St.",
                                city: "Denver",
                                state: "Colorado",
