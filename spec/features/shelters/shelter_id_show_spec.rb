@@ -48,7 +48,9 @@ RSpec.describe "shelter id page", type: :feature do
                     name: 'Rover',
                     age: 3,
                     sex: "Male",
-                    shelter: shelter_1)
+                    shelter: shelter_1,
+                    description: "He's a biter.",
+                    status: "Pending")
     visit "/shelters/#{shelter_1.id}"
 
     click_link("Pets")

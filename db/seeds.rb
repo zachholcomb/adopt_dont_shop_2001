@@ -15,4 +15,6 @@ pet_1 = Pet.create(image: 'app/assets/images/border_collie.jpg',
                  name: 'Rover',
                  age: 3,
                  sex: "Male",
-                 shelter: shelter_1)
+                 shelter: shelter_1,
+                 description: "He's a Biter!",
+                 status: "Pending Adoption")

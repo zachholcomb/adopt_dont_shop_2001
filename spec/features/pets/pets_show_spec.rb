@@ -12,7 +12,9 @@ RSpec.describe "pet show page", type: :feature do
                      name: 'Rover',
                      age: 3,
                      sex: "Male",
-                     shelter: shelter_1)
+                     shelter: shelter_1,
+                     description: "Great Dog",
+                     status: "Adoptable")
 
     visit "pets/#{pet.id}"
 
@@ -20,5 +22,7 @@ RSpec.describe "pet show page", type: :feature do
     expect(page).to have_content(pet.name)
     expect(page).to have_content(pet.age)
     expect(page).to have_content(pet.sex)
+    expect(page).to have_content(pet.description)
+    expect(page).to have_content(pet.status)
   end
 end
