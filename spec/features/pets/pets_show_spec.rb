@@ -8,7 +8,7 @@ RSpec.describe "pet show page", type: :feature do
                                state: "Colorado",
                                zip: "80201")
 
-    pet = Pet.create!(image: 'https://image.shutterstock.com/z/stock-photo-attentive-border-collie-dog-lying-down-on-the-grass-on-a-sunny-d-593634296.jpg',
+    pet = Pet.create!(image: 'app/assets/images/border_collie.jpg',
                      name: 'Rover',
                      age: 3,
                      sex: "Male",
@@ -16,10 +16,10 @@ RSpec.describe "pet show page", type: :feature do
 
     visit "pets/#{pet.id}"
 
-    expect(page).to have_content(pet.image)
+    expect(page).to have_css("img[src*='#{pet.image}']")
     expect(page).to have_content(pet.name)
     expect(page).to have_content(pet.age)
     expect(page).to have_content(pet.sex)
-    expect(page).to have_content(pet.shelter)
+    expect(page).to have_content(pet.shelter.id)
   end
 end
