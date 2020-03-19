@@ -6,3 +6,5 @@
   <li><%= @pet.status %></li>
 </ul>
 <p><img src=<%= @pet.image %> /></p>
+
+<%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>

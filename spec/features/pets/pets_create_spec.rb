@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "pets" do
+RSpec.describe "pets", type: :feature do
   it "can create new pets" do
     shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                                address: "500 Invisible St.",
