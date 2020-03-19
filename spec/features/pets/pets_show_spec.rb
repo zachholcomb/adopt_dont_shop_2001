@@ -20,6 +20,5 @@ RSpec.describe "pet show page", type: :feature do
     expect(page).to have_content(pet.name)
     expect(page).to have_content(pet.age)
     expect(page).to have_content(pet.sex)
-    expect(page).to have_content(pet.shelter.id)
   end
 end
