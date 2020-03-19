@@ -25,9 +25,7 @@ shelter_3 = Shelter.create(name: "Aurora Animal Shelter",
                            city: "Aurora",
                            state: "Colorado",
                            zip: "80399")
-
-
-
+                           
 pet_1 = Pet.create(image: 'https://i.etsystatic.com/6800741/r/il/624c21/1191091098/il_fullxfull.1191091098_i1jl.jpg',
                  name: 'Rover',
                  age: 3,

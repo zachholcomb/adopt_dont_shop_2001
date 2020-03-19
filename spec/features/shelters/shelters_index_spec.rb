@@ -33,4 +33,51 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content('State:')
     expect(page).to have_content('Zip:')
   end
+
+  it "can link to update page" do
+    shelter_1 = Shelter.create(name: "Denver Animal Shelter",
+                               address: "500 Invisible St.",
+                               city: "Denver",
+                               state: "Colorado",
+                               zip: "80201")
+
+    visit "/shelters"
+    expect(page).to have_link('Update Shelter')
+    click_link('Update Shelter')
+    expect(page).to have_current_path("/shelters/#{shelter_1.id}/edit")
+  end
+
+  it "can delete shelters from index page" do
+    shelter_1 = Shelter.create(name: "Denver Animal Shelter",
+                               address: "500 Invisible St.",
+                               city: "Denver",
+                               state: "Colorado",
+                               zip: "80201")
+
+
+    visit "/shelters"
+    expect(page).to have_link("Delete Shelter")
+    click_link('Delete Shelter')
+    expect(page).to_not have_content("Denver Animal Shelter")
+
+    shelter_1 = Shelter.create(name: "Denver Animal Shelter",
+                               address: "500 Invisible St.",
+                               city: "Denver",
+                               state: "Colorado",
+                               zip: "80201")
+
+    pet_1 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                    name: 'Rover',
+                    age: 3,
+                    sex: "Male",
+                    shelter: shelter_1,
+                    description: "He's a biter.",
+                    status: "Pending")
+
+    
+    visit "/shelters"
+    expect(page).to have_link("Delete Shelter")
+    click_link('Delete Shelter')
+    expect(page).to_not have_content("Denver Animal Shelter")
+  end
 end
