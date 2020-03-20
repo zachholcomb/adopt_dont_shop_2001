@@ -17,7 +17,7 @@ RSpec.describe "shelter id page", type: :feature do
     expect(page).to have_content(shelter_1.zip)
   end
 
-  it "can link to an edit page for the shelter id" do
+  it "can link to an edit page for the shelter id", type: :feature do
     shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                                address: "500 Invisible St.",
                                city: "Denver",
@@ -35,5 +35,29 @@ RSpec.describe "shelter id page", type: :feature do
     expect(page).to have_content('City:')
     expect(page).to have_content('State:')
     expect(page).to have_content('Zip:')
+  end
+
+  it "can link to itself by shelter name", type: :feature do
+    shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
+                               address: "500 Invisible St.",
+                               city: "Denver",
+                               state: "Colorado",
+                               zip: "80201")
+    visit "/shelters/#{shelter_1.id}"
+    expect(page).to have_link("#{shelter_1.name}")
+    click_link("#{shelter_1.name}")
+    expect(page).to have_current_path("/shelters/#{shelter_1.id}")
+  end
+
+  it "can link to pets index page" do
+    shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
+                               address: "500 Invisible St.",
+                               city: "Denver",
+                               state: "Colorado",
+                               zip: "80201")
+    visit "/shelters/#{shelter_1.id}"
+    expect(page).to have_link("All Pets")
+    click_link("All Pets")
+    expect(page).to have_current_path("/pets")
   end
 end

@@ -14,4 +14,11 @@ RSpec.describe "shelter create page" do
     expect(page).to have_current_path("/shelters")
     expect(page).to have_content("Hedgehog Hospital")
   end
+
+  it "can link to pets index page" do
+    visit('shelters/new')
+    expect(page).to have_link("All Pets")
+    click_link("All Pets")
+    expect(page).to have_current_path("/pets")
+  end
 end
