@@ -109,4 +109,11 @@ RSpec.describe "pets index page", type: :feature do
     click_link("All Pets")
     expect(page).to have_current_path("/pets")
   end
+
+  it "can link to the shelters index page" do
+    visit "/pets"
+    expect(page).to have_link("All Shelters")
+    click_link("All Shelters")
+    expect(page).to have_current_path("/shelters")
+  end
 end

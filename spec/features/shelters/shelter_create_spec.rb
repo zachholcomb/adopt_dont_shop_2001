@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "shelter create page" do
+RSpec.describe "shelter create page", type: :feature do
   it "can create new shelters" do
     visit '/shelters/new'
 
@@ -20,5 +20,12 @@ RSpec.describe "shelter create page" do
     expect(page).to have_link("All Pets")
     click_link("All Pets")
     expect(page).to have_current_path("/pets")
+  end
+
+  it "can link to shelters index page" do
+    visit('shelters/new')
+    expect(page).to have_link("All Shelters")
+    click_link("All Shelters")
+    expect(page).to have_current_path("/shelters")
   end
 end
