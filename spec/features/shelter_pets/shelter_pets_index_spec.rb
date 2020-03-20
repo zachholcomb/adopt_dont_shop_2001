@@ -19,7 +19,7 @@ RSpec.describe "Shelter's pets index", type: :feature do
 
     visit "/shelters/#{shelter_1.id}"
 
-    click_link("Pets")
+    click_link("Shelter Pets")
     expect(page).to have_css("img[src*='#{pet_1.image}']")
     expect(page).to have_current_path("/shelters/#{shelter_1.id}/pets")
     expect(page).to have_content(pet_1.name)

@@ -17,7 +17,7 @@ RSpec.describe "pets create page", type: :feature do
                     status: "Pending")
     visit "/shelters/#{shelter_1.id}"
 
-    click_link("Pets")
+    click_link("Shelter Pets")
 
     expect(page).to have_css("img[src*='#{pet_1.image}']")
     expect(page).to have_current_path("/shelters/#{shelter_1.id}/pets")
