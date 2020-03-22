@@ -132,4 +132,32 @@ RSpec.describe "Shelter's pets index", type: :feature do
     click_link("All Shelters")
     expect(page).to have_current_path("/shelters")
   end
+
+  it "can show count of pets at the shelter" do
+    shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
+                              address: "500 Invisible St.",
+                              city: "Denver",
+                              state: "Colorado",
+                              zip: "80201")
+
+    pet_1 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                    name: 'Rover',
+                    age: 3,
+                    sex: "Male",
+                    shelter: shelter_1,
+                    description: "He's a biter.",
+                    status: "Pending")
+
+    pet_2 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                    name: 'Rover',
+                    age: 3,
+                    sex: "Male",
+                    shelter: shelter_1,
+                    description: "He's a biter.",
+                    status: "Pending")
+
+    visit "/shelters/#{shelter_1.id}/pets"
+    expect(page).to have_content "Pet Count:"
+    expect(page).to have_content(2)
+  end
 end
