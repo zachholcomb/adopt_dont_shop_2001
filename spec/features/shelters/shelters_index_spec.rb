@@ -119,11 +119,11 @@ RSpec.describe "shelters index page", type: :feature do
     visit "/shelters/#{shelter_1.id}/pets"
     click_link("Adoptable Pets")
     expect(page).to have_current_path("/shelters/#{shelter_1.id}/pets?adoptable=true")
-    expect(page).to have_content("Sam")
+    expect(page).to have_content(pet_2.name)
 
     visit "/shelters/#{shelter_1.id}/pets"
     click_link("Pets Pending Adoption")
     expect(page).to have_current_path("/shelters/#{shelter_1.id}/pets?adoptable=false")
-    expect(page).to have_content("Rover")
+    expect(page).to have_content(pet_1.name)
   end
 end
