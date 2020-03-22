@@ -1,6 +1,12 @@
 class PetsController < ApplicationController
   def index
-    @pets = Pet.all.find_adoptable
+    if params["adoptable"] == "true"
+      @pets = Pet.find_adoptable
+    elsif params["adoptable"] == "false"
+      @pets = Pet.find_pending
+    else
+      @pets = Pet.all.sort_adoptable
+    end
   end
 
   def show

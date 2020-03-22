@@ -7,7 +7,15 @@ class Pet < ApplicationRecord
     self.status ||= 'Adoptable'
   end
 
-  def self.find_adoptable
+  def self.sort_adoptable
     Pet.order("status")
+  end
+
+  def self.find_adoptable
+    where(status: "Adoptable")
+  end
+
+  def self.find_pending
+    where(status: "Pending Adoption")
   end
 end
