@@ -33,6 +33,51 @@ RSpec.describe Shelter, type: :model do
     end
 
     describe "class methods", type: :model do
+      it ".sort_by_pets" do
+        shelter_1 = Shelter.create(name: "Denver Animal Shelter",
+                             address: "500 Invisible St.",
+                             city: "Denver",
+                             state: "Colorado",
+                             zip: "80201")
+
+        shelter_2 = Shelter.create(name: "Downtown Animal Shelter",
+                             address: "2550 WeWatta St.",
+                             city: "Denver",
+                             state: "Colorado",
+                             zip: "80222")
+
+        shelter_3 = Shelter.create(name: "Aurora Animal Shelter",
+                             address: "3665 E. Colfax Ave.",
+                             city: "Aurora",
+                             state: "Colorado",
+                             zip: "80399")
+
+        pet_1 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                        name: 'Rover',
+                        age: 3,
+                        sex: "Male",
+                        shelter: shelter_1,
+                        description: "He's a biter.",
+                        status: "Pending")
+
+        pet_2 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                        name: 'Rover',
+                        age: 3,
+                        sex: "Male",
+                        shelter: shelter_3,
+                        description: "He's a biter.",
+                        status: "Pending")
+
+        pet_3 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                        name: 'Rover',
+                        age: 3,
+                        sex: "Male",
+                        shelter: shelter_3,
+                        description: "He's a biter.",
+                        status: "Pending")
+
+        expect(Shelter.sort_by_pets).to eq([shelter_3, shelter_1])
+      end
       it ".sort_alphabetical" do
         shelter_1 = Shelter.create(name: "Denver Animal Shelter",
                              address: "500 Invisible St.",
