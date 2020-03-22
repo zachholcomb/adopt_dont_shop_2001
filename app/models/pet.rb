@@ -8,6 +8,6 @@ class Pet < ApplicationRecord
   end
 
   def self.find_adoptable
-    Pet.where(status: 'Adoptable')
+    Pet.order("status")
   end
 end

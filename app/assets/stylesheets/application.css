@@ -115,3 +115,7 @@ a:hover {
 a:active {
   color: blue;
 }
+
+.pet_link {
+  text-align: center;
+}

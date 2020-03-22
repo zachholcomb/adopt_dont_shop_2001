@@ -38,7 +38,7 @@ RSpec.describe Pet, type: :model do
                       shelter: shelter_1,
                       description: "He's a biter.",
                       status: "Adoptable")
-      expect(Pet.find_adoptable).to eq([pet_2])
+      expect(Pet.find_adoptable).to eq([pet_2, pet_1])
     end
   end
 end

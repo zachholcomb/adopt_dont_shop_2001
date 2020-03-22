@@ -160,4 +160,32 @@ RSpec.describe "Shelter's pets index", type: :feature do
     expect(page).to have_content "Pet Count:"
     expect(page).to have_content(2)
   end
+  
+  it "can sort pets by adoption status" do
+    shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
+                              address: "500 Invisible St.",
+                              city: "Denver",
+                              state: "Colorado",
+                              zip: "80201")
+
+    pet_1 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                    name: 'Rover',
+                    age: 3,
+                    sex: "Male",
+                    shelter: shelter_1,
+                    description: "He's a biter.",
+                    status: "Pending")
+
+    pet_2 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                    name: 'Sam',
+                    age: 3,
+                    sex: "Male",
+                    shelter: shelter_1,
+                    description: "He's a biter.",
+                    status: "Adoptable")
+
+    visit "/shelters/#{shelter_1.id}/pets"
+    first('.pet_link').click_link
+    expect(page).to have_current_path("/pets/#{pet_2.id}")
+  end
 end
