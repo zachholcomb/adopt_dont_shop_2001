@@ -31,5 +31,29 @@ RSpec.describe Shelter, type: :model do
                       status: "Pending")
       expect(shelter_1.pet_count).to eq(1)
     end
+
+    describe "class methods", type: :model do
+      it ".sort_alphabetical" do
+        shelter_1 = Shelter.create(name: "Denver Animal Shelter",
+                             address: "500 Invisible St.",
+                             city: "Denver",
+                             state: "Colorado",
+                             zip: "80201")
+
+        shelter_2 = Shelter.create(name: "Downtown Animal Shelter",
+                             address: "2550 WeWatta St.",
+                             city: "Denver",
+                             state: "Colorado",
+                             zip: "80222")
+
+        shelter_3 = Shelter.create(name: "Aurora Animal Shelter",
+                             address: "3665 E. Colfax Ave.",
+                             city: "Aurora",
+                             state: "Colorado",
+                             zip: "80399")
+
+        expect(Shelter.sort_alphabetical).to eq([shelter_3, shelter_1, shelter_2])
+      end
+    end
   end
 end

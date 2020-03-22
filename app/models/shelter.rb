@@ -5,4 +5,8 @@ class Shelter < ApplicationRecord
   def pet_count
     self.pets.count
   end
+
+  def self.sort_alphabetical
+    Shelter.order("name")
+  end
 end
