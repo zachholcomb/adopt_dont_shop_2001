@@ -15,7 +15,6 @@ RSpec.describe "shelters index page", type: :feature do
                               zip: "80777")
 
     visit "/shelters"
-
     expect(page).to have_content(shelter_1.name)
     expect(page).to have_content(shelter_2.name)
   end
@@ -74,10 +73,24 @@ RSpec.describe "shelters index page", type: :feature do
                     description: "He's a biter.",
                     status: "Pending")
 
-    
+
     visit "/shelters"
     expect(page).to have_link("Delete Shelter")
     click_link('Delete Shelter')
     expect(page).to_not have_content("Denver Animal Shelter")
+  end
+
+  it "can link to pets index page" do
+    visit "/shelters"
+    expect(page).to have_link("All Pets")
+    click_link("All Pets")
+    expect(page).to have_current_path("/pets")
+  end
+
+  it "can link to itself" do
+    visit "/shelters"
+    expect(page).to have_link("All Shelters")
+    click_link("All Shelters")
+    expect(page).to have_current_path("/shelters")
   end
 end
