@@ -2,6 +2,13 @@
   <li><%= link_to "All Pets", "/pets" %></li>
   <li><%= link_to "All Shelters", "/shelters" %></li>
 </ul>
+<ul class="menu">
+  <% if @pet.status == "Adoptable" %>
+    <li><%= link_to 'Change to Adoption Pending', "/pets/#{@pet.id}/pending", method: :patch %></li>
+  <% elsif @pet.status == "Pending Adoption" %>
+    <li><%= link_to 'Change to Adoptable', "/pets/#{@pet.id}/adoptable", method: :patch %></li>
+  <% end %>
+</ul>
 <h1><%= link_to @pet.name, "/pets/#{@pet.id}" %></h1>
 <ul>
   <li><%= @pet.age %></li>

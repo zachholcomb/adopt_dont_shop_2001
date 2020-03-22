@@ -25,7 +25,7 @@ shelter_3 = Shelter.create(name: "Aurora Animal Shelter",
                            city: "Aurora",
                            state: "Colorado",
                            zip: "80399")
-                           
+
 pet_1 = Pet.create(image: 'https://i.etsystatic.com/6800741/r/il/624c21/1191091098/il_fullxfull.1191091098_i1jl.jpg',
                  name: 'Rover',
                  age: 3,
@@ -48,3 +48,27 @@ pet_3 = Pet.create(image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com
                  shelter: shelter_2,
                  description: "Spunky!",
                  status: "Pending Adoption")
+
+pet_4 = Pet.create(image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/chihuahua-dog-running-across-grass-royalty-free-image-1580743445.jpg?crop=0.984xw:0.738xh;0,0.0938xh&resize=980:*',
+                 name: "George",
+                 age: 2,
+                 sex: "Male",
+                 shelter: shelter_2,
+                 description: "Spunky!",
+                 status: "Pending Adoption")
+
+pet_5 = Pet.create(image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/chihuahua-dog-running-across-grass-royalty-free-image-1580743445.jpg?crop=0.984xw:0.738xh;0,0.0938xh&resize=980:*',
+                 name: "George",
+                 age: 2,
+                 sex: "Male",
+                 shelter: shelter_2,
+                 description: "Spunky!",
+                 status: "Pending Adoption")
+
+pet_6 = Pet.create(image: 'https://i.etsystatic.com/6800741/r/il/624c21/1191091098/il_fullxfull.1191091098_i1jl.jpg',
+                 name: 'Rover',
+                 age: 3,
+                 sex: "Male",
+                 shelter: shelter_2,
+                 description: "He's a Biter!",
+                 status: "Adoptable")
