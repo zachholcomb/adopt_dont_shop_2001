@@ -6,4 +6,8 @@ class Pet < ApplicationRecord
   def set_defaults
     self.status ||= 'Adoptable'
   end
+
+  def self.find_adoptable
+    Pet.where(status: 'Adoptable')
+  end
 end
