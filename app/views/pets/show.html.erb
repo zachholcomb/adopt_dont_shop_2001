@@ -1,4 +1,7 @@
-<%= link_to "All Pets", "/pets" %><%= link_to "All Shelters", "/shelters" %>
+<ul class="nav">
+  <li><%= link_to "All Pets", "/pets" %></li>
+  <li><%= link_to "All Shelters", "/shelters" %></li>
+</ul>
 <h1><%= link_to @pet.name, "/pets/#{@pet.id}" %></h1>
 <ul>
   <li><%= @pet.age %></li>
@@ -8,5 +11,7 @@
 </ul>
 <p><img src=<%= @pet.image %> /></p>
 
-<%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %><br>
-<%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
+<ul class="menu">
+  <li><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></li>
+  <li><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></li>
+</ul>
