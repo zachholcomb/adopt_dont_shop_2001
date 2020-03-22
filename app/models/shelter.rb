@@ -9,7 +9,7 @@ class Shelter < ApplicationRecord
   def self.sort_alphabetical
     Shelter.order("name")
   end
-  
+
   def self.sort_by_pets
     Shelter.joins(:pets)
            .group(:id)

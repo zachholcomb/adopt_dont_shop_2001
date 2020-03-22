@@ -58,7 +58,7 @@ RSpec.describe Shelter, type: :model do
                         sex: "Male",
                         shelter: shelter_1,
                         description: "He's a biter.",
-                        status: "Pending")
+                        status: "Adoptable")
 
         pet_2 = Pet.create(image: 'app/assets/images/border_collie.jpg',
                         name: 'Rover',
@@ -74,7 +74,31 @@ RSpec.describe Shelter, type: :model do
                         sex: "Male",
                         shelter: shelter_3,
                         description: "He's a biter.",
+                        status: "Adoptable")
+
+        pet_1 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                        name: 'Rover',
+                        age: 3,
+                        sex: "Male",
+                        shelter: shelter_1,
+                        description: "He's a biter.",
                         status: "Pending")
+
+        pet_2 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                        name: 'Rover',
+                        age: 3,
+                        sex: "Male",
+                        shelter: shelter_3,
+                        description: "He's a biter.",
+                        status: "Adoptable")
+
+        pet_3 = Pet.create(image: 'app/assets/images/border_collie.jpg',
+                        name: 'Rover',
+                        age: 3,
+                        sex: "Male",
+                        shelter: shelter_3,
+                        description: "He's a biter.",
+                        status: "Adoptable")
 
         expect(Shelter.sort_by_pets).to eq([shelter_3, shelter_1])
       end
