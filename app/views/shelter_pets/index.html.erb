@@ -7,7 +7,7 @@
 <% @pets.each do |pet| %>
   <div class="gallery">
     <img src=<%= pet.image %> />
-    <div clas="desc">
+    <div class="desc">
         <p><%= link_to pet.name, "/pets/#{pet.id}" %></p>
         <p><%= pet.age %></p>
         <p><%= pet.sex %></p>
