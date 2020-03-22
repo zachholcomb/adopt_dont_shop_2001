@@ -79,6 +79,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  adapter: postgresql
+  prepared_statements: false
   <<: *default
   database: adopt_dont_shop_production
   username: adopt_dont_shop
