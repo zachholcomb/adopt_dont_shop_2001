@@ -1,7 +1,11 @@
 class SheltersController < ApplicationController
 
   def index
-    @shelters = Shelter.all
+    if params["alpha"] == "true"
+      @shelters = Shelter.sort_alphabetical
+    else
+      @shelters = Shelter.all
+    end
   end
 
   def show
